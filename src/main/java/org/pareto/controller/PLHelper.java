@@ -146,8 +146,7 @@ public class PLHelper {
         String priceRegex = "^[0-9]+\\.{0,1}[0-9]*$";
         Pattern pricePattern = Pattern.compile(priceRegex);
         Matcher priceMatcher = pricePattern.matcher(price);
-        boolean isValidPrice = priceMatcher.matches();
-        return isValidPrice;
+        return priceMatcher.matches();
     }
 
 
@@ -161,8 +160,7 @@ public class PLHelper {
         String yearRegex = "^(17|18|19|20)[0-9]{2}";
         Pattern yearPattern = Pattern.compile(yearRegex);
         Matcher yearMatcher = yearPattern.matcher(year);
-        boolean validYear = yearMatcher.matches();
-        return validYear;
+        return yearMatcher.matches();
     }
 
 
