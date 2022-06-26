@@ -21,6 +21,8 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import static org.pareto.controller.LogHelper.log;
+
 /**
  * Class to generate XML exports for PersonalLibrary objects.
  * <br><code><b>[OMI-GP2-Hausarbeit]</b></code>
@@ -29,6 +31,10 @@ import org.w3c.dom.Element;
  * @author   Hendrik Schlange (mail@hendrikschlange.de)
  */
 public class XMLExporter {
+
+    private XMLExporter() {
+        log("Utility class");
+    }
 
     /** XML element for a book entry. */
     static Element bookElement;
