@@ -11,6 +11,7 @@ package org.pareto.controller;
 
 import java.io.File;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -78,7 +79,7 @@ public class XMLExporter {
             xmlDocToFile(xmlDoc, file);
 
         } catch (ParserConfigurationException e) {
-            log("XML creation failed" + e.getStackTrace().toString());
+            log("XML creation failed" + Arrays.toString(e.getStackTrace()));
         }
     }
 
@@ -146,7 +147,7 @@ public class XMLExporter {
             transformer.transform(xmlDocSource, fileResult);
 
         } catch (TransformerException e) {
-            log("File export failed" + e.getStackTrace().toString());
+            log("File export failed" + Arrays.toString(e.getStackTrace()));
         }
     }
 }

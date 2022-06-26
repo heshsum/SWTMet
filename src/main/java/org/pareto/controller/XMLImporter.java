@@ -11,6 +11,7 @@ package org.pareto.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -109,7 +110,7 @@ public class XMLImporter {
             PLHelper.populateLibrary();
 
         } catch (ParserConfigurationException | SAXException | IOException e) {
-            log("Import failed." + e.getStackTrace().toString());
+            log("Import failed." + Arrays.toString(e.getStackTrace()));
         }
     }
 }
