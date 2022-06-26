@@ -11,6 +11,7 @@ package org.pareto.controller;
 
 import java.io.File;
 import java.time.LocalDateTime;
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -79,8 +80,6 @@ public class XMLExporter {
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
-
-        return;
     }
 
 
@@ -137,6 +136,8 @@ public class XMLExporter {
     private static void xmlDocToFile(Document xmlDoc, File file) {
         try {
             TransformerFactory transFactory = TransformerFactory.newInstance();
+            transFactory.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+            transFactory.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");
             Transformer transformer = transFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
@@ -144,11 +145,9 @@ public class XMLExporter {
             Result fileResult = new StreamResult(file);
             transformer.transform(xmlDocSource, fileResult);
 
-        } catch (TransformerConfigurationException e1) {
+        } catch (TransformerException e1) {
             e1.printStackTrace();
 
-        } catch (TransformerException e) {
-            e.printStackTrace();
         }
     }
 }
