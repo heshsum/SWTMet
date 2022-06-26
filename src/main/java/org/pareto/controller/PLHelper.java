@@ -110,11 +110,12 @@ public class PLHelper {
         // Replacing , with . to be able to parse it
         price = price.replace(",", ".");
 
+        Boolean isValidPrice = isValidPrice(price);
         // If the price String is a valid price, round it to two decimal places
-        if (isValidPrice(price)) {
+        if (Boolean.TRUE.equals(isValidPrice)) {
 
             // Converting to BigDecimal to make use of setScale
-            BigDecimal tempPrice = BigDecimal.valueOf(Double.valueOf(price));
+            BigDecimal tempPrice = BigDecimal.valueOf(Double.parseDouble(price));
 
             // Round the value to 2 decimal places
             tempPrice = tempPrice.setScale(2, RoundingMode.HALF_UP);
