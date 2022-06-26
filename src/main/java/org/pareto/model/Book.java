@@ -189,22 +189,22 @@ public class Book {
      */
     public String getAllSet() {
         StringBuilder returnString = new StringBuilder();
-        returnString.append("Author: " + this.author + System.lineSeparator()
-            + "Title: " + this.title + System.lineSeparator());
+        returnString.append("Author: ").append(this.author).append(System.lineSeparator())
+                .append("Title: ").append(this.title).append(System.lineSeparator());
         
         if (this.publisher != null) {
-            returnString.append("Publisher: " + this.publisher + System.lineSeparator());
+            returnString.append("Publisher: ").append(this.publisher).append(System.lineSeparator());
         }
         if (this.year != -1) {
-            returnString.append("Year: " + this.year + System.lineSeparator());
+            returnString.append("Year: ").append(this.year).append(System.lineSeparator());
         }
         if (this.isbn != null) {
-            returnString.append("ISBN: " + this.isbn + System.lineSeparator());
+            returnString.append("ISBN: ").append(this.isbn).append(System.lineSeparator());
         }
         if (this.price != -1.0) {
-            returnString.append("Price: " + this.price + System.lineSeparator());
+            returnString.append("Price: ").append(this.price).append(System.lineSeparator());
         }
-        returnString.append("Ebook: " + this.ebook);
+        returnString.append("Ebook: ").append(this.ebook);
         
         return returnString.toString();
     }
@@ -214,15 +214,13 @@ public class Book {
      * @return the author and the title of the Book
      */
     public String getAll() {
-        String returnString = "Author: " + this.author + System.lineSeparator()
+        return "Author: " + this.author + System.lineSeparator()
             + "Title: " + this.title + System.lineSeparator()
             + "Publisher: " + this.publisher + System.lineSeparator()
             + "Year: " + this.year + System.lineSeparator()
             + "ISBN: " + this.isbn + System.lineSeparator()
             + "Price: " + this.price + System.lineSeparator()
             + "Ebook: " + this.ebook;
-        
-        return returnString;
     }
 
     /**
@@ -232,10 +230,8 @@ public class Book {
      */
     @Override
     public String toString() {
-        String returnString = "Author: " + author + System.lineSeparator()
+        return "Author: " + author + System.lineSeparator()
             + "Title: " + title + System.lineSeparator();
-
-        return returnString;
     }
 
 }
