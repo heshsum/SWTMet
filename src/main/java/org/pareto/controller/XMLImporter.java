@@ -47,6 +47,7 @@ public class XMLImporter {
         try {
             // Opening and parsing the file
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            dbFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document importDocument = dBuilder.parse(importFile);
 
