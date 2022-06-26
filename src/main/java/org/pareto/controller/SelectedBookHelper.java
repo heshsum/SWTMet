@@ -68,12 +68,12 @@ public class SelectedBookHelper {
         getSelectedBook().setPublisher(publisher);
         if (year.isBlank() || year == null) {
             getSelectedBook().setYear(-1);
-        } else if (PLHelper.isValidYear(year)) {
+        } else if (Boolean.TRUE.equals(PLHelper.isValidYear(year))) {
             getSelectedBook().setYear(Integer.parseInt(year));
         }
         getSelectedBook().setIsbn(isbn);
 
-        if (price.isBlank() ||  price.equals(0.0) || price.equals("-1.0") || price.equals("-")) {
+        if (price.isBlank() ||  price.equals("0.0") || price.equals("-1.0") || price.equals("-")) {
             getSelectedBook().setPrice(-1);
         } else {
             getSelectedBook().setPrice(PLHelper.priceFormatter(price));
