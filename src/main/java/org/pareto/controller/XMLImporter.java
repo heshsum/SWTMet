@@ -87,7 +87,7 @@ public class XMLImporter {
 
                         // After the book was created, the other attributes are set
                         newBook.setPublisher(tempPublisher);
-                        if (PLHelper.isValidYear(tempYear)) {
+                        if (Boolean.TRUE.equals(PLHelper.isValidYear(tempYear))) {
                             newBook.setYear(Integer.parseInt(tempYear));
                         }
                         newBook.setIsbn(tempIsbn);
