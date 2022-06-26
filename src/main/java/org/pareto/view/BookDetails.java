@@ -38,6 +38,26 @@ import static org.pareto.controller.LogHelper.log;
  * @author   Hendrik Schlange (mail@hendrikschlange.de)
  */
 public class BookDetails {
+    /** Label for the author field. */
+    static final Label AUTHOR = new Label("Author:");
+
+    /** Label for the title field. */
+    static final Label TITLE = new Label("Title:");
+
+    /** Label for the publisher field. */
+    static final Label PUBLISHER = new Label("Publisher:");
+
+    /** Label for the year field. */
+    static final Label YEAR = new Label("Year:");
+
+    /** Label for the ISBN field. */
+    static final Label ISBN = new Label("ISBN:");
+
+    /** Label for the price field. */
+    static final Label PRICE = new Label("Price:");
+
+    /** Label for the e-book field. */
+    static final Label EBOOK = new Label("E-Book:");
 
     /**
      * Creates a GriPand view of a Book object.
@@ -55,13 +75,9 @@ public class BookDetails {
         // Only show the Grid if a Book has been selected
         if (SelectedBookHelper.getSelectedBook() != null) {
 
-            Label authorLabel = new Label("Author:");
             Text authorField = new Text(SelectedBookHelper.getSelectedBook().getAuthor());
-            Label titleLabel = new Label("Title:");
             Text titleField = new Text(SelectedBookHelper.getSelectedBook().getTitle());
-            Label publisherLabel = new Label("Publisher:");
             Text publisherField = new Text(SelectedBookHelper.getSelectedBook().getPublisher());
-            Label yearLabel = new Label("Year:");
 
             // If year is -1 --> show "-"
             String yearValue = String.valueOf(SelectedBookHelper.getSelectedBook().getYear());
@@ -69,9 +85,7 @@ public class BookDetails {
                 yearValue = "-";
             }
             Text yearField = new Text(yearValue);
-            Label isbnLabel = new Label("ISBN:");
             Text isbnField = new Text(SelectedBookHelper.getSelectedBook().getIsbn());
-            Label priceLabel = new Label("Price:");
 
             // If price is -1.0 --> show "-"
             String priceValue = String.valueOf(SelectedBookHelper.getSelectedBook().getPrice());
@@ -80,7 +94,6 @@ public class BookDetails {
             }
             Text priceField = new Text(priceValue);
 
-            Label ebookLabel = new Label("E-Book");
             CheckBox ebookBox = new CheckBox();
             ebookBox.setSelected(SelectedBookHelper.getSelectedBook().getEbook());
             ebookBox.setDisable(true);
@@ -102,13 +115,13 @@ public class BookDetails {
                 }
             });
 
-            bookDetailsViewPane.addRow(1, authorLabel, authorField);
-            bookDetailsViewPane.addRow(2, titleLabel, titleField);
-            bookDetailsViewPane.addRow(3, publisherLabel, publisherField);
-            bookDetailsViewPane.addRow(4, yearLabel, yearField);
-            bookDetailsViewPane.addRow(5, isbnLabel, isbnField);
-            bookDetailsViewPane.addRow(6, priceLabel, priceField);
-            bookDetailsViewPane.addRow(7, ebookLabel, ebookBox);
+            bookDetailsViewPane.addRow(1, AUTHOR, authorField);
+            bookDetailsViewPane.addRow(2, TITLE, titleField);
+            bookDetailsViewPane.addRow(3, PUBLISHER, publisherField);
+            bookDetailsViewPane.addRow(4, YEAR, yearField);
+            bookDetailsViewPane.addRow(5, ISBN, isbnField);
+            bookDetailsViewPane.addRow(6, PRICE, priceField);
+            bookDetailsViewPane.addRow(7, EBOOK, ebookBox);
         }
         return bookDetailsViewPane;
     }
@@ -127,13 +140,9 @@ public class BookDetails {
         // Show grid when debugging mode is active
         bookDetailsEditPane.setGridLinesVisible(PLHelper.getDebug());
 
-        Label authorLabel = new Label("Author:");
         TextField authorField = new TextField(SelectedBookHelper.getSelectedBook().getAuthor());
-        Label titleLabel = new Label("Title:");
         TextField titleField = new TextField(SelectedBookHelper.getSelectedBook().getTitle());
-        Label publisherLabel = new Label("Publisher:");
         TextField publisherField = new TextField(SelectedBookHelper.getSelectedBook().getPublisher());
-        Label yearLabel = new Label("Year:");
         
         // If yearValue = -1, don't show it
         String yearValue = String.valueOf(SelectedBookHelper.getSelectedBook().getYear());
@@ -141,10 +150,8 @@ public class BookDetails {
             yearValue = "";
         }
         TextField yearField = new TextField(yearValue);
-        
-        Label isbnLabel = new Label("ISBN:");
+
         TextField isbnField = new TextField(SelectedBookHelper.getSelectedBook().getIsbn());
-        Label priceLabel = new Label("Price:");
 
         // If price is -1.0 --> show nothing
         String priceValue = String.valueOf(SelectedBookHelper.getSelectedBook().getPrice());
@@ -153,7 +160,6 @@ public class BookDetails {
         }
         TextField priceField = new TextField(priceValue);
 
-        Label ebookLabel = new Label("E-Book");
         CheckBox ebookBox = new CheckBox();
         ebookBox.setSelected(SelectedBookHelper.getSelectedBook().getEbook());
 
@@ -176,13 +182,13 @@ public class BookDetails {
         Button deleteBookButton = new Button("Delete");
         deleteBookButton.setOnAction(e -> DeleteBook.deleteModal()); 
 
-        bookDetailsEditPane.addRow(1, authorLabel, authorField);
-        bookDetailsEditPane.addRow(2, titleLabel, titleField);
-        bookDetailsEditPane.addRow(3, publisherLabel, publisherField);
-        bookDetailsEditPane.addRow(4, yearLabel, yearField);
-        bookDetailsEditPane.addRow(5, isbnLabel, isbnField);
-        bookDetailsEditPane.addRow(6, priceLabel, priceField);
-        bookDetailsEditPane.addRow(7, ebookLabel, ebookBox);
+        bookDetailsEditPane.addRow(1, AUTHOR, authorField);
+        bookDetailsEditPane.addRow(2, TITLE, titleField);
+        bookDetailsEditPane.addRow(3, PUBLISHER, publisherField);
+        bookDetailsEditPane.addRow(4, YEAR, yearField);
+        bookDetailsEditPane.addRow(5, ISBN, isbnField);
+        bookDetailsEditPane.addRow(6, PRICE, priceField);
+        bookDetailsEditPane.addRow(7, EBOOK, ebookBox);
         bookDetailsEditPane.add(errorMessage, 0, 8, 3, 1);
         bookDetailsEditPane.addRow(9, saveBookButton, cancelEditBookButton, deleteBookButton);
 
@@ -203,19 +209,12 @@ public class BookDetails {
         // Show grid when debugging mode is active
         createBookPane.setGridLinesVisible(PLHelper.getDebug());
 
-        Label authorLabel = new Label("Author:");
         TextField authorField = new TextField();
-        Label titleLabel = new Label("Title:");
         TextField titleField = new TextField();
-        Label publisherLabel = new Label("Publisher:");
         TextField publisherField = new TextField();
-        Label yearLabel = new Label("Year:");
         TextField yearField = new TextField();
-        Label isbnLabel = new Label("ISBN:");
         TextField isbnField = new TextField();
-        Label priceLabel = new Label("Price:");
         TextField priceField = new TextField();
-        Label ebookLabel = new Label("E-Book");
         CheckBox ebookBox = new CheckBox();
         ebookBox.setSelected(false);
 
@@ -256,13 +255,13 @@ public class BookDetails {
         Button cancelEditBookButton = new Button("Cancel");
         cancelEditBookButton.setOnAction(e -> PLHelper.getBP().setCenter(bookDetailsViewPane())); 
 
-        createBookPane.addRow(1, authorLabel, authorField);
-        createBookPane.addRow(2, titleLabel, titleField);
-        createBookPane.addRow(3, publisherLabel, publisherField);
-        createBookPane.addRow(4, yearLabel, yearField);
-        createBookPane.addRow(5, isbnLabel, isbnField);
-        createBookPane.addRow(6, priceLabel, priceField);
-        createBookPane.addRow(7, ebookLabel, ebookBox);
+        createBookPane.addRow(1, AUTHOR, authorField);
+        createBookPane.addRow(2, TITLE, titleField);
+        createBookPane.addRow(3, PUBLISHER, publisherField);
+        createBookPane.addRow(4, YEAR, yearField);
+        createBookPane.addRow(5, ISBN, isbnField);
+        createBookPane.addRow(6, PRICE, priceField);
+        createBookPane.addRow(7, EBOOK, ebookBox);
         createBookPane.add(errorMessage, 0, 8, 3, 1);
         createBookPane.addRow(9, saveBookButton, cancelEditBookButton);
 
