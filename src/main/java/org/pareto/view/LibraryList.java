@@ -11,11 +11,10 @@ package org.pareto.view;
 
 import org.pareto.controller.SelectedBookHelper;
 import org.pareto.controller.PLHelper;
-import javafx.event.EventHandler;
 import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import org.pareto.model.Book;
+import static org.pareto.controller.LogHelper.log;
 
 /**
  * Class to generate the list of Book objects for a PersonalLibrary.
@@ -26,6 +25,11 @@ import org.pareto.model.Book;
  */
 public class LibraryList {
 
+    /** Private constructor to hide the public one. */
+    private LibraryList() {
+        log("Utility class");
+    }
+    
     /**
      * Method to create the VBox for the PersonalLibrary.
      * @return the VBox object for the PersonalLibrary
@@ -49,13 +53,10 @@ public class LibraryList {
         ListView<Book> bookList = new ListView<>();
         bookList.setItems(PLHelper.getPersonalLibraryObservableList());
 
-        bookList.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                SelectedBookHelper.setSelectedBook(PLHelper.getPL().get(bookList.getSelectionModel().getSelectedIndex()));
-                PLHelper.getBP().setTop(Menubar.menubar());
-                PLHelper.getBP().setCenter(BookDetails.bookDetailsViewPane());
-            }
+        bookList.setOnMouseClicked(mouseEvent -> {
+            SelectedBookHelper.setSelectedBook(PLHelper.getPL().get(bookList.getSelectionModel().getSelectedIndex()));
+            PLHelper.getBP().setTop(Menubar.menubar());
+            PLHelper.getBP().setCenter(BookDetails.bookDetailsViewPane());
         });
         return bookList;
     }
