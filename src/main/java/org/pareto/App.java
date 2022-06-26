@@ -61,7 +61,8 @@ public class App extends Application {
 
         // Set the debug mode
         PLHelper.setDebug(false);
-        //LibraryTester.createExamples(false);
+
+        LibraryTester.createExamples(false);
 
         launch(args);
     }
