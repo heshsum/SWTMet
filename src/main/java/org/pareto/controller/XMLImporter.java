@@ -109,7 +109,7 @@ public class XMLImporter {
             PLHelper.populateLibrary();
 
         } catch (ParserConfigurationException | SAXException | IOException e) {
-            e.printStackTrace();
+            log("Import failed." + e.getStackTrace().toString());
         }
     }
 }

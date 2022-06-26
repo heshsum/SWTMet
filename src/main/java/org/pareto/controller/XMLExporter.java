@@ -78,7 +78,7 @@ public class XMLExporter {
             xmlDocToFile(xmlDoc, file);
 
         } catch (ParserConfigurationException e) {
-            e.printStackTrace();
+            log("XML creation failed" + e.getStackTrace().toString());
         }
     }
 
@@ -145,9 +145,8 @@ public class XMLExporter {
             Result fileResult = new StreamResult(file);
             transformer.transform(xmlDocSource, fileResult);
 
-        } catch (TransformerException e1) {
-            e1.printStackTrace();
-
+        } catch (TransformerException e) {
+            log("File export failed" + e.getStackTrace().toString());
         }
     }
 }
