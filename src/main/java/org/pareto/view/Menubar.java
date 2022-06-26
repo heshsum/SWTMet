@@ -14,8 +14,6 @@ import org.pareto.controller.SelectedBookHelper;
 import org.pareto.controller.PLHelper;
 import org.pareto.controller.XMLExporter;
 import org.pareto.controller.XMLImporter;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -40,13 +38,10 @@ public class Menubar {
         box.setPadding(new Insets(10, 10, 10, 10));
 
         Button createBookButton = new Button("Create book");
-        createBookButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                PLHelper.getBP().setCenter(BookDetails.createBookPane());
-                // Setting selectedBook == null to deactivate the "Edit" Button
-                SelectedBookHelper.setSelectedBook(null);
-            }
+        createBookButton.setOnAction(actionEvent -> {
+            PLHelper.getBP().setCenter(BookDetails.createBookPane());
+            // Setting selectedBook == null to deactivate the "Edit" Button
+            SelectedBookHelper.setSelectedBook(null);
         });
 
         // Button to show a book in the edit view
@@ -60,26 +55,22 @@ public class Menubar {
 
         // Button for exporting the whole library to XML
         Button exportButton = new Button("Export library");
-        exportButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                FileChooser exportFileChooser = new FileChooser();
+        exportButton.setOnAction(actionEvent -> {
+            FileChooser exportFileChooser = new FileChooser();
 
-                // Set filter for export to XML
-                FileChooser.ExtensionFilter xmlExtensionFilter = new FileChooser.
-                        ExtensionFilter("XML file (*.xml)", "*.xml");
-                exportFileChooser.getExtensionFilters().add(xmlExtensionFilter);
+            // Set filter for export to XML
+            FileChooser.ExtensionFilter xmlExtensionFilter = new FileChooser.
+                    ExtensionFilter("XML file (*.xml)", "*.xml");
+            exportFileChooser.getExtensionFilters().add(xmlExtensionFilter);
 
-                Window exportStage = null;
-                
-                //Show save file dialog
-                File exportFile = exportFileChooser.showSaveDialog(exportStage);
-                if (exportFile != null) {
-                    // When the export file is set, trigger the XML export
-                    XMLExporter.exportToXML(exportFile);
-                }
+            Window exportStage = null;
+
+            //Show save file dialog
+            File exportFile = exportFileChooser.showSaveDialog(exportStage);
+            if (exportFile != null) {
+                // When the export file is set, trigger the XML export
+                XMLExporter.exportToXML(exportFile);
             }
-
         });
         
         // Exporting the library should only be possible if the PersonalLibrary has entries
@@ -89,27 +80,22 @@ public class Menubar {
 
         // Button to import a library from XML
         Button importButton = new Button("Import library");
-        importButton.setOnAction(new EventHandler<ActionEvent>() {
+        importButton.setOnAction(arg0 -> {
+            FileChooser importFileChooser = new FileChooser();
 
-            @Override
-            public void handle(ActionEvent arg0) {
-                FileChooser importFileChooser = new FileChooser();
-                
-                // Set filter for export to XML
-                FileChooser.ExtensionFilter xmlExtensionFilter = new FileChooser.
-                        ExtensionFilter("XML file (*.xml)", "*.xml");
-                importFileChooser.getExtensionFilters().add(xmlExtensionFilter);
-                
-                Window importStage = null;
-                
-                // After the import file was set, trigger the XML import
-                File importFile = importFileChooser.showOpenDialog(importStage);
-                if (importFile != null) {
-                    XMLImporter.importFromXML(importFile);
-                }
-                
+            // Set filter for export to XML
+            FileChooser.ExtensionFilter xmlExtensionFilter = new FileChooser.
+                    ExtensionFilter("XML file (*.xml)", "*.xml");
+            importFileChooser.getExtensionFilters().add(xmlExtensionFilter);
+
+            Window importStage = null;
+
+            // After the import file was set, trigger the XML import
+            File importFile = importFileChooser.showOpenDialog(importStage);
+            if (importFile != null) {
+                XMLImporter.importFromXML(importFile);
             }
-        
+
         });
 
         // Adding all entries to the box
