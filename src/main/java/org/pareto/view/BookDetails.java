@@ -28,6 +28,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import org.pareto.model.Book;
 
+import static org.pareto.controller.LogHelper.log;
+
 /**
  * Class to generate the Book details view at the center of the GUI.
  * <br><code><b>[OMI-GP2-Hausarbeit]</b></code>
@@ -84,24 +86,20 @@ public class BookDetails {
             ebookBox.setDisable(true);
 
             Button exportButton = new Button("Export book");
-            exportButton.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    FileChooser exportFileChooser = new FileChooser();
+            exportButton.setOnAction(actionEvent -> {
+                FileChooser exportFileChooser = new FileChooser();
 
-                    // Set filter for export to XML
-                    FileChooser.ExtensionFilter xmlExtensionFilter = new FileChooser.
-                            ExtensionFilter("XML file (*.xml)", "*.xml");
-                    exportFileChooser.getExtensionFilters().add(xmlExtensionFilter);
+                // Set filter for export to XML
+                FileChooser.ExtensionFilter xmlExtensionFilter = new FileChooser.
+                        ExtensionFilter("XML file (*.xml)", "*.xml");
+                exportFileChooser.getExtensionFilters().add(xmlExtensionFilter);
 
-                    Window primaryStage = null;
-                    //Show save file dialog
-                    File file = exportFileChooser.showSaveDialog(primaryStage);
-                    if (file != null) {
-                        XMLExporter.exportToXML(file);
-                    }
+                Window primaryStage = null;
+                //Show save file dialog
+                File file = exportFileChooser.showSaveDialog(primaryStage);
+                if (file != null) {
+                    XMLExporter.exportToXML(file);
                 }
-
             });
 
             bookDetailsViewPane.addRow(1, authorLabel, authorField);
@@ -163,16 +161,13 @@ public class BookDetails {
         errorMessage.setFill(Color.RED);
 
         Button saveBookButton = new Button("Save");
-        saveBookButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                if (authorField.getText().isBlank() ||  titleField.getText().isBlank()) {
-                    errorMessage.setText("Author and Title are mandatory to create new books.");
-                } else {
-                    SelectedBookHelper.saveSelectedBook(authorField.getText(), titleField.getText(), publisherField.getText(),
-                            yearField.getText(), isbnField.getText(), 
-                            priceField.getText(), ebookBox.isSelected());
-                }
+        saveBookButton.setOnAction(actionEvent -> {
+            if (authorField.getText().isBlank() ||  titleField.getText().isBlank()) {
+                errorMessage.setText("Author and Title are mandatory to create new books.");
+            } else {
+                SelectedBookHelper.saveSelectedBook(authorField.getText(), titleField.getText(), publisherField.getText(),
+                        yearField.getText(), isbnField.getText(),
+                        priceField.getText(), ebookBox.isSelected());
             }
         });
         Button cancelEditBookButton = new Button("Cancel");
@@ -238,7 +233,7 @@ public class BookDetails {
                     newBook = new Book(authorField.getText(), titleField.getText());
                     try {
                         newBook.setPublisher(publisherField.getText());
-                        if (PLHelper.isValidYear(yearField.getText())) {
+                        if (Boolean.TRUE.equals(PLHelper.isValidYear(yearField.getText()))) {
                             newBook.setYear(Integer.parseInt(yearField.getText()));
                         }
                         newBook.setIsbn(isbnField.getText());
@@ -247,7 +242,7 @@ public class BookDetails {
                             newBook.setEbook(true);
                         }
                     } catch (Exception nullException) {
-                        System.out.println(nullException);
+                        log(nullException);
                     }
 
                     PLHelper.getPL().add(newBook);
