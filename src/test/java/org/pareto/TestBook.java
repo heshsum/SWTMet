@@ -29,6 +29,8 @@ class TestBook {
     /** Default ISBN to use in tests. */
     String i = "123456";
 
+    Boolean e = true;
+
     /** Default price to use in tests. */
     double price = 9.99;
 
@@ -37,6 +39,26 @@ class TestBook {
         b = new Book(a, t);
     }
 
+    @Test
+    void create() {
+        b.setAuthor(a);
+        b.setTitle(t);
+        b.setPublisher(p);
+        b.setYear(y);
+        b.setIsbn(i);
+        b.setPrice(price);
+        b.setEbook(e);
+
+        Book test = new Book(a, t, p, y, i, price, e);
+
+        Assertions.assertEquals(a, test.getAuthor());
+        Assertions.assertEquals(t, test.getTitle());
+        Assertions.assertEquals(p, test.getPublisher());
+        Assertions.assertEquals(y, test.getYear());
+        Assertions.assertEquals(i, test.getIsbn());
+        Assertions.assertEquals(price, test.getPrice());
+        Assertions.assertEquals(e, test.getEbook());
+    }
     @Test
     void getAuthor() {
         Assertions.assertEquals(a, b.getAuthor());
