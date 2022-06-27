@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.pareto.model.Book;
 import org.pareto.model.PersonalLibrary;
 
-public class TestPersonalLibrary {
+class TestPersonalLibrary {
     PersonalLibrary pl;
 
     Book b1;
@@ -29,5 +29,17 @@ public class TestPersonalLibrary {
         Assertions.assertEquals(2, pl.getSize());
         pl.add(b3);
         Assertions.assertEquals(3, pl.getSize());
+    }
+
+    @Test
+    void remove() {
+        pl.add(b1);
+        Assertions.assertEquals(1, pl.getSize());
+        pl.remove(b1);
+        Assertions.assertEquals(0, pl.getSize());
+        pl.add(b1);
+        pl.add(b2);
+        pl.remove(b1);
+        Assertions.assertEquals(1, pl.getSize());
     }
 }
