@@ -39,18 +39,18 @@ class TestBook {
 
     @Test
     void getAuthor() {
-        Assertions.assertEquals(b.getAuthor(), a);
+        Assertions.assertEquals(a, b.getAuthor());
     }
 
     @Test
     void getTitle() {
-        Assertions.assertEquals(b.getTitle(), t);
+        Assertions.assertEquals(t, b.getTitle());
     }
 
     @Test
     void getPublisher() {
         b.setPublisher(p);
-        Assertions.assertEquals(b.getPublisher(), p);
+        Assertions.assertEquals(p, b.getPublisher());
     }
 
     @Test
@@ -73,18 +73,18 @@ class TestBook {
     @Test
     void year() {
         b.setYear(y);
-        Assertions.assertEquals(b.getYear(), y);
+        Assertions.assertEquals(y, b.getYear());
     }
 
     @Test
     void isbn() {
         b.setIsbn(i);
-        Assertions.assertEquals(b.getIsbn(), i);
+        Assertions.assertEquals(i, b.getIsbn());
     }
 
     @Test
     void price() {
         b.setPrice(price);
-        Assertions.assertEquals(b.getPrice(), price);
+        Assertions.assertEquals(price, b.getPrice());
     }
 }
