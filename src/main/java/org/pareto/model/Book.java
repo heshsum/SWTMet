@@ -13,40 +13,55 @@ package org.pareto.model;
  * Class to describe the model of a Book.
  * <br><code><b>[OMI-GP2-Hausarbeit]</b></code>
  *
+ * @author Hendrik Schlange (mail@hendrikschlange.de)
  * @version 1.00 - 15 June 2020 - HS - initial version
- * @author   Hendrik Schlange (mail@hendrikschlange.de)
  */
 public class Book {
-    /** A String representing the title of a book. */
+    /**
+     * A String representing the title of a book.
+     */
     private String title;
 
-    /** A String representing the author of a book. */
+    /**
+     * A String representing the author of a book.
+     */
     private String author;
 
-    /** A String representing the publisher of the book. */
+    /**
+     * A String representing the publisher of the book.
+     */
     private String publisher;
 
-    /** An integer representing the year of the book. */
+    /**
+     * An integer representing the year of the book.
+     */
     private int year;
 
-    /** A String representing the isbn of a book. */
+    /**
+     * A String representing the isbn of a book.
+     */
     private String isbn;
 
-    /** A double representing the price of a book. */
+    /**
+     * A double representing the price of a book.
+     */
     private double price;
-    
-    /** A boolean representing if the book is an e-book. */
+
+    /**
+     * A boolean representing if the book is an e-book.
+     */
     private boolean ebook;
 
     /**
      * Constructor for a new Book object.
-     * @param title the title of the book
-     * @param author the author of the book
+     *
+     * @param title     the title of the book
+     * @param author    the author of the book
      * @param publisher the publisher of the book
-     * @param year the year the book was released
-     * @param isbn the ISBN of the book
-     * @param price the price of the book
-     * @param ebook the boolean if the book is an ebook
+     * @param year      the year the book was released
+     * @param isbn      the ISBN of the book
+     * @param price     the price of the book
+     * @param ebook     the boolean if the book is an ebook
      */
     public Book(String author, String title, String publisher, int year, String isbn, double price, boolean ebook) {
         this.author = author;
@@ -60,7 +75,8 @@ public class Book {
 
     /**
      * Constructor for a new Book object.
-     * @param title the title of the book
+     *
+     * @param title  the title of the book
      * @param author the author of the book
      */
     public Book(String author, String title) {
@@ -72,6 +88,7 @@ public class Book {
 
     /**
      * Method to retrieve the author of a book.
+     *
      * @return the author of the book
      */
     public String getAuthor() {
@@ -80,6 +97,7 @@ public class Book {
 
     /**
      * Method to retrieve the title of a book.
+     *
      * @return the title of the book
      */
     public String getTitle() {
@@ -88,6 +106,7 @@ public class Book {
 
     /**
      * Method to retrieve the publisher of a book.
+     *
      * @return the publisher of the book
      */
     public String getPublisher() {
@@ -96,6 +115,7 @@ public class Book {
 
     /**
      * Method to retrieve the year of a book.
+     *
      * @return the year of the book
      */
     public int getYear() {
@@ -104,6 +124,7 @@ public class Book {
 
     /**
      * Method to retrieve the ISBN of a book.
+     *
      * @return the ISBN of the book
      */
     public String getIsbn() {
@@ -112,6 +133,7 @@ public class Book {
 
     /**
      * Method to retrieve the price of a book.
+     *
      * @return the price of the book
      */
     public double getPrice() {
@@ -120,7 +142,8 @@ public class Book {
 
     /**
      * Method to retrieve the information if the book is an ebook.
-     * @return true if the book is an ebook, false if it is not 
+     *
+     * @return true if the book is an ebook, false if it is not
      */
     public boolean getEbook() {
         return this.ebook;
@@ -128,6 +151,7 @@ public class Book {
 
     /**
      * Method to set the author of a book.
+     *
      * @param author the author of the book
      * @throws IllegalArgumentException if the author is blank
      */
@@ -140,6 +164,7 @@ public class Book {
 
     /**
      * Method to set the title of a book.
+     *
      * @param title the title of the book
      * @throws IllegalArgumentException if the title is blank
      */
@@ -152,6 +177,7 @@ public class Book {
 
     /**
      * Method to set the publisher of a book.
+     *
      * @param publisher the publisher of the book
      */
     public void setPublisher(String publisher) {
@@ -160,6 +186,7 @@ public class Book {
 
     /**
      * Method to set the year of a book.
+     *
      * @param year the year of the book
      */
     public void setYear(int year) {
@@ -168,6 +195,7 @@ public class Book {
 
     /**
      * Method to set the ISBN of a book.
+     *
      * @param isbn the ISBN of the book
      */
     public void setIsbn(String isbn) {
@@ -176,30 +204,33 @@ public class Book {
 
     /**
      * Method to set the price of a book.
+     *
      * @param price the price of the book
      */
     public void setPrice(double price) {
         this.price = price;
     }
-    
+
     /**
      * Sets the information whether or not a book is an ebook.
+     *
      * @param ebook the information if the book is an ebook
-     * True if it the book is an ebook, otherwise false
+     *              True if it the book is an ebook, otherwise false
      */
     public void setEbook(boolean ebook) {
         this.ebook = ebook;
     }
-    
+
     /**
      * Returns a complete textual representation of all attributes set for a Book.
+     *
      * @return the author and the title of the Book
      */
     public String getAllSet() {
         StringBuilder returnString = new StringBuilder();
         returnString.append("Author: ").append(this.author).append(System.lineSeparator())
                 .append("Title: ").append(this.title).append(System.lineSeparator());
-        
+
         if (this.publisher != null) {
             returnString.append("Publisher: ").append(this.publisher).append(System.lineSeparator());
         }
@@ -213,33 +244,35 @@ public class Book {
             returnString.append("Price: ").append(this.price).append(System.lineSeparator());
         }
         returnString.append("Ebook: ").append(this.ebook);
-        
+
         return returnString.toString();
     }
-    
+
     /**
      * Returns a complete textual representation of a Book.
+     *
      * @return the author and the title of the Book
      */
     public String getAll() {
         return "Author: " + this.author + System.lineSeparator()
-            + "Title: " + this.title + System.lineSeparator()
-            + "Publisher: " + this.publisher + System.lineSeparator()
-            + "Year: " + this.year + System.lineSeparator()
-            + "ISBN: " + this.isbn + System.lineSeparator()
-            + "Price: " + this.price + System.lineSeparator()
-            + "Ebook: " + this.ebook;
+                + "Title: " + this.title + System.lineSeparator()
+                + "Publisher: " + this.publisher + System.lineSeparator()
+                + "Year: " + this.year + System.lineSeparator()
+                + "ISBN: " + this.isbn + System.lineSeparator()
+                + "Price: " + this.price + System.lineSeparator()
+                + "Ebook: " + this.ebook;
     }
 
     /**
      * Returns a textual representation of author and title of a Book.
      * If more should be returned, use getAll() or getAllSet()
+     *
      * @return the author and title of a Book
      */
     @Override
     public String toString() {
         return "Author: " + author + System.lineSeparator()
-            + "Title: " + title + System.lineSeparator();
+                + "Title: " + title + System.lineSeparator();
     }
 
 }
