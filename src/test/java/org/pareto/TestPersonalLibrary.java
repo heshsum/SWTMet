@@ -61,6 +61,22 @@ class TestPersonalLibrary {
     }
 
     @Test
+    void getByIndex() {
+        pl.add(b1);
+        pl.add(b2);
+        pl.add(b3);
+        Assertions.assertEquals(b1, pl.get(0));
+        Assertions.assertEquals(b2, pl.get(1));
+        Assertions.assertEquals(b3, pl.get(2));
+    }
+
+    @Test
+    void getByIllegalIndex() {
+        pl.add(b1);
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> pl.get(1));
+    }
+
+    @Test
     void getAll() {
         pl.add(b1);
         pl.add(b2);

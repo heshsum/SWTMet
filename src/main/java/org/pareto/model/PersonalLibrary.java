@@ -28,8 +28,12 @@ public class PersonalLibrary {
      * Method to retrieve a single book from the library.
      * @param index the index position of a book in the library
      * @return the Book object of that index position
+     * @throws ArrayIndexOutOfBoundsException if index is out of bounds
      */
-    public Book get(int index) {
+    public Book get(int index) throws ArrayIndexOutOfBoundsException {
+        if (index >= pl.size()) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
         return pl.get(index);
     }
     
