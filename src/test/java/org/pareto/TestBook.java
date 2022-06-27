@@ -71,19 +71,19 @@ class TestBook {
     }
 
     @Test
-    void year() {
+    void setYear() {
         b.setYear(y);
         Assertions.assertEquals(y, b.getYear());
     }
 
     @Test
-    void isbn() {
+    void setIsbn() {
         b.setIsbn(i);
         Assertions.assertEquals(i, b.getIsbn());
     }
 
     @Test
-    void price() {
+    void setPrice() {
         b.setPrice(price);
         Assertions.assertEquals(price, b.getPrice());
     }
