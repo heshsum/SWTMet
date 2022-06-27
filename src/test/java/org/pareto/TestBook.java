@@ -27,15 +27,37 @@ class TestBook {
     void setup() {
         b = new Book(a, t);
     }
+
     @Test
-    void testBook() {
+    void getAuthor() {
         Assertions.assertEquals(b.getAuthor(), a);
+    }
+
+    @Test
+    void getTitle() {
         Assertions.assertEquals(b.getTitle(), t);
     }
 
     @Test
-    void testException() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> b.setTitle(""));
+    void getPublisher() {
+        b.setPublisher(p);
+        Assertions.assertEquals(b.getPublisher(), p);
+    }
+
+    @Test
+    void getEbook() {
+        Assertions.assertFalse(b.getEbook());
+        b.setEbook(true);
+        Assertions.assertTrue(b.getEbook());
+    }
+
+    @Test
+    void setAuthor() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> b.setAuthor(""));
+    }
+
+    @Test
+    void setTitle() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> b.setTitle(""));
     }
 }
