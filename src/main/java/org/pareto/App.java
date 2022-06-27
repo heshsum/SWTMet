@@ -1,7 +1,7 @@
 package org.pareto;
 
 /*
- * Run.java
+ * App.java
  *
  * Copyright (c) 2020
  * All Rights Reserved.
@@ -24,11 +24,12 @@ import org.pareto.view.Menubar;
 public class App extends Application {
 
 
-
+    /**
+     * Start method to run the mainStage of JavaFX.
+     * @param mainStage the main stage of the GUI
+     */
     @Override
     public void start(Stage mainStage) {
-
-
         // Populate the list with entries
         PLHelper.populateLibrary();
 
