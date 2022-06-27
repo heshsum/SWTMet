@@ -42,4 +42,15 @@ class TestPersonalLibrary {
         pl.remove(b1);
         Assertions.assertEquals(1, pl.getSize());
     }
+
+    @Test
+    void getAll() {
+        pl.add(b1);
+        pl.add(b2);
+        pl.add(b3);
+        Assertions.assertEquals(3, pl.getAll().size());
+        Assertions.assertEquals(b1, pl.getAll().get(0));
+        Assertions.assertEquals(b2, pl.getAll().get(1));
+        Assertions.assertEquals(b3, pl.getAll().get(2));
+    }
 }
