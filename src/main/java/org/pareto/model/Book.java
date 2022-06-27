@@ -129,17 +129,25 @@ public class Book {
     /**
      * Method to set the author of a book.
      * @param author the author of the book
+     * @throws IllegalArgumentException if the author is blank
      */
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthor(String author) throws IllegalArgumentException {
+        if (!author.isBlank()) {
+            this.author = author;
+        }
+        throw new IllegalArgumentException();
     }
 
     /**
      * Method to set the title of a book.
      * @param title the title of the book
+     * @throws IllegalArgumentException if the title is blank
      */
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(String title) throws IllegalArgumentException {
+        if (!title.isBlank()) {
+            this.title = title;
+        }
+        throw new IllegalArgumentException();
     }
 
     /**
