@@ -67,8 +67,9 @@ class TestBook {
 
     @Test
     void setAuthor() {
-        b.setAuthor(a);
-        Assertions.assertEquals(a, b.getAuthor());
+        String s = "test";
+        b.setAuthor(s);
+        Assertions.assertEquals(s, b.getAuthor());
     }
 
     @Test
@@ -78,8 +79,9 @@ class TestBook {
 
     @Test
     void setTitle() {
-        b.setTitle(t);
-        Assertions.assertEquals(t, b.getTitle());
+        String s = "test";
+        b.setTitle(s);
+        Assertions.assertEquals(s, b.getTitle());
     }
 
     @Test
@@ -98,5 +100,17 @@ class TestBook {
     void setPrice() {
         b.setPrice(price);
         Assertions.assertEquals(price, b.getPrice());
+    }
+
+    @Test
+    void getString() {
+        String s1 = "test1";
+        String s2 = "test2";
+        String r = "Author: " + s1 + System.lineSeparator()
+                + "Title: " + s2 + System.lineSeparator();
+        b.setAuthor(s1);
+        b.setTitle(s2);
+
+        Assertions.assertEquals(r, b.toString());
     }
 }
