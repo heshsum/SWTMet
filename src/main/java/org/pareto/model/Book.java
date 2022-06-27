@@ -132,10 +132,10 @@ public class Book {
      * @throws IllegalArgumentException if the author is blank
      */
     public void setAuthor(String author) throws IllegalArgumentException {
-        if (!author.isBlank()) {
-            this.author = author;
+        if (author.isBlank()) {
+            throw new IllegalArgumentException();
         }
-        throw new IllegalArgumentException();
+        this.author = author;
     }
 
     /**

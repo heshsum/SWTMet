@@ -61,8 +61,14 @@ class TestBook {
     }
 
     @Test
-    void setAuthor() {
+    void setIllegalAuthor() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> b.setAuthor(""));
+    }
+
+    @Test
+    void setAuthor() {
+        b.setAuthor(a);
+        Assertions.assertEquals(a, b.getAuthor());
     }
 
     @Test
