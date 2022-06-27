@@ -22,7 +22,7 @@ class TestPersonalLibrary {
     }
 
     @Test
-    void add() {
+    void addByBook() {
         pl.add(b1);
         Assertions.assertEquals(1, pl.getSize());
         pl.add(b2);
@@ -32,7 +32,14 @@ class TestPersonalLibrary {
     }
 
     @Test
-    void remove() {
+    void addByString() {
+        pl.add("author", "title");
+        Assertions.assertEquals("author", pl.get(0).getAuthor());
+        Assertions.assertEquals("title", pl.get(0).getTitle());
+    }
+
+    @Test
+    void removeByBook() {
         pl.add(b1);
         Assertions.assertEquals(1, pl.getSize());
         pl.remove(b1);
@@ -41,6 +48,16 @@ class TestPersonalLibrary {
         pl.add(b2);
         pl.remove(b1);
         Assertions.assertEquals(1, pl.getSize());
+    }
+
+    @Test
+    void removeByIndex() {
+        pl.add(b1);
+        pl.add(b2);
+        Assertions.assertEquals(2, pl.getSize());
+        pl.remove(0);
+        Assertions.assertEquals(1, pl.getSize());
+        Assertions.assertEquals(b2, pl.get(0));
     }
 
     @Test
