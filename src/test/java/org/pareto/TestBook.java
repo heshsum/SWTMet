@@ -72,8 +72,14 @@ class TestBook {
     }
 
     @Test
-    void setTitle() {
+    void setIllegalTitle() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> b.setTitle(""));
+    }
+
+    @Test
+    void setTitle() {
+        b.setTitle(t);
+        Assertions.assertEquals(t, b.getTitle());
     }
 
     @Test

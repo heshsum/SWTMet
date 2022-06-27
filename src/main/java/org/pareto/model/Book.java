@@ -144,10 +144,10 @@ public class Book {
      * @throws IllegalArgumentException if the title is blank
      */
     public void setTitle(String title) throws IllegalArgumentException {
-        if (!title.isBlank()) {
-            this.title = title;
+        if (title.isBlank()) {
+            throw new IllegalArgumentException();
         }
-        throw new IllegalArgumentException();
+        this.title = title;
     }
 
     /**
