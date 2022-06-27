@@ -15,7 +15,6 @@
         <sonar.sources>src/main</sonar.sources>
         <sonar.tests>src/test</sonar.tests>
         <sonar.java.binaries>target/classes</sonar.java.binaries>
-        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
     <dependencies>
         <dependency>
@@ -60,8 +59,6 @@
                 <version>0.0.6</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running -->
-                        <!-- Usage: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>org.pareto.App</mainClass>
@@ -99,6 +96,9 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <configuration>
+                            <destFile>target/jacoco/jacoco.xml</destFile>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
