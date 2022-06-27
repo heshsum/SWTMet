@@ -66,7 +66,7 @@ public class SelectedBookHelper {
         getSelectedBook().setAuthor(author);
         getSelectedBook().setTitle(title);
         getSelectedBook().setPublisher(publisher);
-        if (year.isBlank() || year == null) {
+        if (year.isBlank()) {
             getSelectedBook().setYear(-1);
         } else if (Boolean.TRUE.equals(PLHelper.isValidYear(year))) {
             getSelectedBook().setYear(Integer.parseInt(year));
