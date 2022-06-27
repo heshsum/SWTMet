@@ -125,6 +125,21 @@ class TestBook {
     }
 
     @Test
+    void getAllSet() {
+        Book test = new Book(a, t, p, y, i, price, e);
+
+        String r = "Author: " + a + System.lineSeparator()
+            + "Title: " + t + System.lineSeparator()
+            + "Publisher: " + p + System.lineSeparator()
+            + "Year: " + y + System.lineSeparator()
+            + "ISBN: " + i + System.lineSeparator()
+            + "Price: " + price + System.lineSeparator()
+            + "Ebook: " + e;
+
+        Assertions.assertEquals(r, test.getAllSet());
+    }
+
+    @Test
     void getString() {
         String s1 = "test1";
         String s2 = "test2";
