@@ -23,6 +23,6 @@ public class LogHelper {
         for (Object element : output) {
             logString.append(" ").append(element.toString());
         }
-        log(logString);
+        System.out.println(logString.toString());
     }
 }
