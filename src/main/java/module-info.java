@@ -1,5 +1,5 @@
 module org.example {
     requires javafx.controls;
     requires java.xml;
-    exports org.pareto;
+    opens org.pareto;
 }
