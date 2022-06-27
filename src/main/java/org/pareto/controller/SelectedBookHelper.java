@@ -14,6 +14,8 @@ import org.pareto.model.Book;
 import org.pareto.view.BookDetails;
 import org.pareto.view.Menubar;
 
+import static org.pareto.controller.LogHelper.log;
+
 
 /**
  * Class for helper functions to control Book objects.
@@ -26,6 +28,13 @@ public class SelectedBookHelper {
 
     /** The currently selected Book object. */
     private static Book selectedBook;
+
+    /**
+     * Private Constructor to hide the public one.
+     */
+    private SelectedBookHelper() {
+        log("Utility class");
+    }
 
     /**
      * Method to set the currently used Book object.
