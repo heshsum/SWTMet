@@ -14,7 +14,6 @@
         <sonar-maven-plugin.version>3.4.0.905</sonar-maven-plugin.version>
         <sonar.java.codeCoveragePlugin>jacoco</sonar.java.codeCoveragePlugin>
         <sonar.tests>${project.basedir}/src/test/</sonar.tests>
-        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/coverage</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
     <dependencies>
         <dependency>
@@ -73,6 +72,7 @@
                 <version>${jacoco-maven-plugin.version}</version>
                 <configuration>
                     <outputDirectory>${sonar.coverage.jacoco.xmlReportPaths}</outputDirectory>
+                    <sessionId>jacoco</sessionId>
                 </configuration>
                 <executions>
                     <execution>
