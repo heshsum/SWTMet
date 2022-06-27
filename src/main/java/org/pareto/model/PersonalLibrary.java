@@ -10,6 +10,7 @@
 package org.pareto.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class to represent a library (in the classical sense) for Book objects.
@@ -37,12 +38,8 @@ public class PersonalLibrary {
      * Method to retrieve an ArrayList object containing all Book object of the PersonalLibrary.
      * @return an ArrayList with all Book object of the PersonalLibrary
      */
-    public ArrayList<Book> getAll() {
-        ArrayList<Book> returnList = new ArrayList<>();
-        for (Book b : pl) {
-            returnList.add(b);
-        }
-        return returnList;
+    public List<Book> getAll() {
+        return new ArrayList<>(pl);
     }
 
     /**
