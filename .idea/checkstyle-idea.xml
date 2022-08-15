@@ -9,6 +9,7 @@
       <list>
         <ConfigurationLocation id="bundled-sun-checks" type="BUNDLED" scope="All" description="Sun Checks">(bundled)</ConfigurationLocation>
         <ConfigurationLocation id="bundled-google-checks" type="BUNDLED" scope="All" description="Google Checks">(bundled)</ConfigurationLocation>
+        <ConfigurationLocation id="cb448ee2-549b-42a7-8f83-b142fc19ccc8" type="LOCAL_FILE" scope="All" description="OMI">$PROJECT_DIR$/checkstyle-OMI3h.xml</ConfigurationLocation>
       </list>
     </option>
   </component>
