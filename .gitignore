@@ -9,3 +9,4 @@ target/*/
 target/site/jacoco/jacoco-resources
 jacoco.csv
 !target/site/
+.idea/sonarlint
